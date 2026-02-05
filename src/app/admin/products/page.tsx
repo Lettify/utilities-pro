@@ -16,11 +16,18 @@ export default async function ProductsPage() {
     )
     .order("name", { ascending: true });
 
-  const mappedProducts: Product[] =
-    products?.map((product) => ({
+  type ProductRow = Product & {
+    categories?: { name: string } | { name: string }[] | null;
+  };
+
+  const mappedProducts: Product[] = ((products ?? []) as ProductRow[]).map(
+    (product) => ({
       ...product,
-      category_name: product.categories?.name ?? null,
-    })) ?? [];
+      category_name: Array.isArray(product.categories)
+        ? product.categories[0]?.name ?? null
+        : product.categories?.name ?? null,
+    })
+  );
 
   return (
     <ProductsManager
