@@ -6,7 +6,7 @@ import { createSupabaseServerClient } from "@/lib/supabase/server";
 import type { Category, Product } from "@/lib/types";
 
 export default async function StorePage() {
-  const supabase = createSupabaseServerClient();
+  const supabase = await createSupabaseServerClient();
   const { data: categories } = await supabase
     .from("categories")
     .select("id,name,slug,description,sort_order,active")

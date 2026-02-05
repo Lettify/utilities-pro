@@ -3,7 +3,7 @@ import type { Category } from "@/lib/types";
 import { CategoriesManager } from "@/components/admin/categories-manager";
 
 export default async function CategoriesPage() {
-  const supabase = createSupabaseServerClient();
+  const supabase = await createSupabaseServerClient();
   const { data } = await supabase
     .from("categories")
     .select("id,name,slug,description,sort_order,active")

@@ -5,7 +5,7 @@ import { getSinceIsoDate } from "@/lib/analytics";
 import { formatCurrencyBRL } from "@/lib/currency";
 
 export default async function AdminDashboard() {
-  const supabase = createSupabaseServerClient();
+  const supabase = await createSupabaseServerClient();
   const { data: boxes } = await supabase
     .from("finance_boxes")
     .select("box_key,amount_cents")

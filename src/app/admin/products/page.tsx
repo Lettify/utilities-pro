@@ -3,7 +3,7 @@ import type { Category, Product } from "@/lib/types";
 import { ProductsManager } from "@/components/admin/products-manager";
 
 export default async function ProductsPage() {
-  const supabase = createSupabaseServerClient();
+  const supabase = await createSupabaseServerClient();
   const { data: categories } = await supabase
     .from("categories")
     .select("id,name,slug,description,sort_order,active")

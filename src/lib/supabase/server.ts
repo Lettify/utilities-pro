@@ -1,8 +1,8 @@
 import { createServerClient as createServer } from "@supabase/ssr";
 import { cookies } from "next/headers";
 
-export const createSupabaseServerClient = () => {
-  const cookieStore = cookies();
+export const createSupabaseServerClient = async () => {
+  const cookieStore = await cookies();
   return createServer(
     process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "",
@@ -11,8 +11,12 @@ export const createSupabaseServerClient = () => {
         getAll: () => cookieStore.getAll(),
         setAll: (items) => {
           try {
+            const store = cookieStore as unknown as {
+              set: (name: string, value: string, options?: Record<string, unknown>) => void;
+            };
+            if (!store.set) return;
             items.forEach((item) => {
-              cookieStore.set(item.name, item.value, item.options);
+              store.set(item.name, item.value, item.options);
             });
           } catch {
             // no-op in server components

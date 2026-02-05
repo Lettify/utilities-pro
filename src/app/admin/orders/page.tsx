@@ -2,7 +2,7 @@ import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { OrdersList } from "@/components/admin/orders-list";
 
 export default async function OrdersPage() {
-  const supabase = createSupabaseServerClient();
+  const supabase = await createSupabaseServerClient();
   const { data } = await supabase
     .from("orders")
     .select("id,status,total_cents,created_at")
