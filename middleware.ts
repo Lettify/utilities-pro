@@ -1,6 +1,8 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { createServerClient } from "@supabase/ssr";
 
+type CookieList = ReturnType<NextRequest["cookies"]["getAll"]>;
+
 export const middleware = async (request: NextRequest) => {
   if (!request.nextUrl.pathname.startsWith("/admin")) {
     return NextResponse.next();
@@ -13,7 +15,7 @@ export const middleware = async (request: NextRequest) => {
     {
       cookies: {
         getAll: () => request.cookies.getAll(),
-        setAll: (cookies) => {
+        setAll: (cookies: CookieList) => {
           cookies.forEach((cookie) => {
             response.cookies.set(cookie.name, cookie.value, cookie.options);
           });

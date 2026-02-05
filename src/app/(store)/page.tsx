@@ -24,7 +24,7 @@ export default async function StorePage() {
   const mappedProducts: Product[] =
     products?.map((product) => ({
       ...product,
-      category_name: product.categories?.name ?? null,
+      category_name: Array.isArray(product.categories) ? product.categories[0]?.name ?? null : product.categories?.name ?? null,
     })) ?? [];
 
   return (
