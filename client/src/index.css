@@ -1,0 +1,424 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@font-face {
+  font-family: "Cinzel";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/cinzel/v23/8vIU7ww63mVu7gtR-kwKxNvkNOjw-tbnTYrvDE5ZdqU.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/playfairdisplay/v37/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvXDXbtXK-F2qC0s.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/montserrat/v26/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2") format("woff2");
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  /* Nutallis Custom Colors */
+  --color-cacau: var(--cacau);
+  --color-cacau-light: var(--cacau-light);
+  --color-ouro: var(--ouro);
+  --color-ouro-dark: var(--ouro-dark);
+  --color-folha: var(--folha);
+  --color-folha-light: var(--folha-light);
+  --color-perla: var(--perla);
+  --color-perla-dark: var(--perla-dark);
+}
+
+/* Nutallis Brasil - Quiet Luxury Theme */
+/* Colors: Cacau Deep #2D1E17, Ouro Nutallis #D4AF37, Folha Seca #3A5A40, Perla #FDFDF9 */
+
+:root {
+  /* Primary: Cacau Deep - rich chocolate brown */
+  --primary: oklch(0.22 0.05 50);
+  --primary-foreground: oklch(0.985 0.005 90);
+  
+  /* Accent: Ouro Nutallis - elegant gold */
+  --accent: oklch(0.75 0.14 85);
+  --accent-foreground: oklch(0.22 0.05 50);
+  
+  /* Secondary: Folha Seca - botanical green */
+  --secondary: oklch(0.38 0.08 145);
+  --secondary-foreground: oklch(0.985 0.005 90);
+  
+  /* Sidebar colors */
+  --sidebar-primary: oklch(0.22 0.05 50);
+  --sidebar-primary-foreground: oklch(0.985 0.005 90);
+  
+  /* Chart colors */
+  --chart-1: oklch(0.75 0.14 85);
+  --chart-2: oklch(0.38 0.08 145);
+  --chart-3: oklch(0.22 0.05 50);
+  --chart-4: oklch(0.55 0.1 120);
+  --chart-5: oklch(0.65 0.08 60);
+  
+  --radius: 0.5rem;
+  
+  /* Background: Perla - warm off-white */
+  --background: oklch(0.985 0.005 90);
+  --foreground: oklch(0.22 0.05 50);
+  
+  /* Card */
+  --card: oklch(0.99 0.003 90);
+  --card-foreground: oklch(0.22 0.05 50);
+  
+  /* Popover */
+  --popover: oklch(0.99 0.003 90);
+  --popover-foreground: oklch(0.22 0.05 50);
+  
+  /* Muted */
+  --muted: oklch(0.95 0.01 90);
+  --muted-foreground: oklch(0.45 0.02 50);
+  
+  /* Destructive */
+  --destructive: oklch(0.55 0.2 25);
+  --destructive-foreground: oklch(0.985 0.005 90);
+  
+  /* Border & Input */
+  --border: oklch(0.88 0.02 85);
+  --input: oklch(0.88 0.02 85);
+  --ring: oklch(0.75 0.14 85);
+  
+  /* Sidebar */
+  --sidebar: oklch(0.985 0.005 90);
+  --sidebar-foreground: oklch(0.22 0.05 50);
+  --sidebar-accent: oklch(0.95 0.01 90);
+  --sidebar-accent-foreground: oklch(0.22 0.05 50);
+  --sidebar-border: oklch(0.88 0.02 85);
+  --sidebar-ring: oklch(0.75 0.14 85);
+  
+  /* Nutallis Custom Colors */
+  --cacau: oklch(0.22 0.05 50);
+  --cacau-light: oklch(0.30 0.05 50);
+  --ouro: oklch(0.75 0.14 85);
+  --ouro-dark: oklch(0.65 0.14 85);
+  --folha: oklch(0.38 0.08 145);
+  --folha-light: oklch(0.45 0.08 145);
+  --perla: oklch(0.985 0.005 90);
+  --perla-dark: oklch(0.95 0.01 90);
+  
+  /* Typography */
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", "Cinzel", ui-serif, Georgia, serif;
+}
+
+.dark {
+  --primary: oklch(0.75 0.14 85);
+  --primary-foreground: oklch(0.22 0.05 50);
+  --sidebar-primary: oklch(0.75 0.14 85);
+  --sidebar-primary-foreground: oklch(0.22 0.05 50);
+  --background: oklch(0.18 0.04 50);
+  --foreground: oklch(0.95 0.005 90);
+  --card: oklch(0.22 0.05 50);
+  --card-foreground: oklch(0.95 0.005 90);
+  --popover: oklch(0.22 0.05 50);
+  --popover-foreground: oklch(0.95 0.005 90);
+  --secondary: oklch(0.45 0.08 145);
+  --secondary-foreground: oklch(0.95 0.005 90);
+  --muted: oklch(0.28 0.04 50);
+  --muted-foreground: oklch(0.70 0.02 90);
+  --accent: oklch(0.75 0.14 85);
+  --accent-foreground: oklch(0.22 0.05 50);
+  --destructive: oklch(0.65 0.2 25);
+  --destructive-foreground: oklch(0.985 0.005 90);
+  --border: oklch(0.35 0.04 50);
+  --input: oklch(0.35 0.04 50);
+  --ring: oklch(0.75 0.14 85);
+  --chart-1: oklch(0.75 0.14 85);
+  --chart-2: oklch(0.45 0.08 145);
+  --chart-3: oklch(0.55 0.1 120);
+  --chart-4: oklch(0.65 0.08 60);
+  --chart-5: oklch(0.50 0.06 80);
+  --sidebar: oklch(0.22 0.05 50);
+  --sidebar-foreground: oklch(0.95 0.005 90);
+  --sidebar-accent: oklch(0.28 0.04 50);
+  --sidebar-accent-foreground: oklch(0.95 0.005 90);
+  --sidebar-border: oklch(0.35 0.04 50);
+  --sidebar-ring: oklch(0.75 0.14 85);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+}
+
+/* Nutallis Custom Utilities */
+
+/* Text gradient gold */
+.text-gradient-gold {
+  background: linear-gradient(135deg, var(--ouro), oklch(0.80 0.12 90), var(--ouro));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Background gradients */
+.bg-gradient-hero {
+  background: linear-gradient(180deg, var(--cacau) 0%, oklch(0.28 0.04 50) 100%);
+}
+
+.bg-gradient-section {
+  background: linear-gradient(180deg, var(--perla) 0%, var(--perla-dark) 100%);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--perla-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ouro);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ouro-dark);
+}
+
+/* Animation utilities */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Product card hover effect */
+.product-card {
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  box-shadow: 0 10px 40px rgba(45, 30, 23, 0.1);
+  transform: translateY(-4px);
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+/* Image zoom container */
+.image-zoom-container {
+  overflow: hidden;
+}
+
+.image-zoom-container img {
+  transition: transform 0.5s ease-out;
+}
+
+/* Button gold variant */
+.btn-gold {
+  background: var(--ouro);
+  color: var(--cacau);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+  background: var(--ouro-dark);
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.4);
+}
+
+/* Elegant underline effect */
+.elegant-underline {
+  position: relative;
+}
+
+.elegant-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--ouro);
+  transition: width 0.3s ease;
+}
+
+.elegant-underline:hover::after {
+  width: 100%;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(253, 253, 249, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Section divider */
+.section-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--ouro), transparent);
+}
+
+/* Hero slider */
+.hero-slide {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+/* Dropdown animation */
+.dropdown-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.dropdown-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Mobile menu */
+.mobile-menu-enter {
+  transform: translateX(100%);
+}
+
+.mobile-menu-enter-active {
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
