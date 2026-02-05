@@ -24,8 +24,8 @@ export default async function StorePage() {
   type ProductRow = Product & {
     categories?: { name: string } | { name: string }[] | null;
   };
-
-  const mappedProducts: Product[] = ((products ?? []) as ProductRow[]).map(
+            ].map((item) => (
+              <Card key={item.title} className="bg-white">
     (product) => ({
       ...product,
       category_name: Array.isArray(product.categories)
@@ -35,17 +35,16 @@ export default async function StorePage() {
   );
 
   return (
-    <div className="mx-auto flex w-full max-w-6xl flex-col gap-16 px-6 py-12">
-      <section className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+    <div className="mx-auto flex w-full max-w-6xl flex-col gap-20 px-6 py-14">
+      <section className="grid gap-12 lg:grid-cols-[1.3fr_0.7fr]">
         <div className="space-y-6">
           <Badge>Natureza em alta performance</Badge>
-          <h1 className="display-font text-4xl text-forest md:text-5xl">
-            Nutallis Brasil: blends premium que elevam sua rotina.
+          <h1 className="display-font text-4xl text-forest md:text-6xl">
+            Nutallis Brasil. Nutricao premium, logistica precisa.
           </h1>
-          <p className="text-base text-foreground/70">
-            Castanhas selecionadas, mixes funcionais e sementes para nutrir seu dia
-            com sabor e qualidade. Monte seu peso ideal, receba rapido e acompanhe
-            cada pedido no nosso ecossistema inteligente.
+          <p className="text-base text-foreground/80 md:text-lg">
+            Castanhas, mixes e sementes com curadoria rigorosa. Escolha o peso ideal,
+            acompanhe o pedido em tempo real e receba com a rota mais eficiente.
           </p>
           <div className="flex flex-wrap gap-4">
             <Button asChild>
@@ -81,19 +80,19 @@ export default async function StorePage() {
             ))}
           </div>
         </div>
-        <div className="rounded-[32px] bg-gradient-to-br from-[#efe7d8] via-[#f7f1e6] to-[#e3d6c5] p-8 shadow-[0_30px_70px_rgba(31,58,47,0.15)]">
-          <div className="space-y-4 rounded-3xl border border-forest/15 bg-white/90 p-6">
-            <div className="text-xs uppercase tracking-[0.3em] text-forest/50">
+        <div className="rounded-[32px] bg-[radial-gradient(circle_at_top,_#fdf8ef,_#efe5d7)] p-8 shadow-[0_30px_70px_rgba(31,58,47,0.12)]">
+          <div className="space-y-5 rounded-[26px] border border-forest/15 bg-white p-6">
+            <div className="text-xs uppercase tracking-[0.35em] text-forest/55">
               Nutallis insights
             </div>
             <div className="display-font text-2xl text-forest">
-              Mais do que e-commerce: um ecossistema vivo.
+              Um ecossistema vivo para operacao e experiencia.
             </div>
-            <p className="text-sm text-foreground/70">
-              Controle de estoque em gramas, caixinhas financeiras automatizadas e
-              logistica conectada a Uber Direct e iFood Sob Demanda.
+            <p className="text-sm text-foreground/75">
+              Estoque em gramas, caixinhas financeiras automatizadas e logistica
+              integrada com fallback inteligente.
             </p>
-            <div className="rounded-2xl bg-forest/5 p-4 text-sm text-foreground/70">
+            <div className="rounded-2xl bg-forest/6 p-4 text-sm text-foreground/70">
               Monitoramento diario de ponto de pedido com base no consumo real.
             </div>
           </div>
@@ -108,7 +107,7 @@ export default async function StorePage() {
         ].map((benefit) => (
           <div
             key={benefit}
-            className="rounded-3xl border border-forest/10 bg-white/70 p-6 text-sm text-foreground/70"
+            className="rounded-[26px] border border-forest/12 bg-white p-6 text-sm text-foreground/75 shadow-[0_18px_40px_rgba(26,33,27,0.08)]"
           >
             <div className="display-font text-lg text-forest">{benefit}</div>
           </div>
@@ -124,22 +123,22 @@ export default async function StorePage() {
 
       <section
         id="assinatura"
-        className="rounded-4xl border border-forest/10 bg-white/80 p-10"
+        className="rounded-[32px] border border-forest/12 bg-white p-10 shadow-[0_24px_60px_rgba(26,33,27,0.1)]"
       >
         <div className="grid gap-6 md:grid-cols-[1.2fr_0.8fr]">
           <div className="space-y-3">
-            <div className="text-xs uppercase tracking-[0.3em] text-forest/50">
+            <div className="text-xs uppercase tracking-[0.35em] text-forest/55">
               Assinatura Nutallis
             </div>
             <h2 className="display-font text-3xl text-forest">
-              Monte sua caixa recorrente.
+              Caixa recorrente, do seu jeito.
             </h2>
-            <p className="text-sm text-foreground/70">
-              Combine categorias, defina frequencia e garanta descontos progressivos
+            <p className="text-sm text-foreground/75">
+              Monte combinacoes, defina frequencia e ganhe desconto progressivo
               sempre que precisar reabastecer.
             </p>
           </div>
-          <div className="rounded-3xl bg-forest/5 p-6 text-sm text-foreground/70">
+          <div className="rounded-[26px] bg-forest/6 p-6 text-sm text-foreground/75">
             Planos personalizados com alertas de reposicao e beneficios para
             membros.
           </div>

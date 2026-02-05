@@ -14,11 +14,11 @@ export const ProductCard = ({ product }: { product: Product }) => {
 
   return (
     <Card className="flex h-full flex-col gap-4">
-      <div className="rounded-2xl bg-forest/10 p-6">
-        <div className="text-sm uppercase tracking-[0.2em] text-forest/60">
+      <div className="rounded-[22px] bg-forest/8 p-6">
+        <div className="text-xs uppercase tracking-[0.25em] text-forest/60">
           {product.category_name ?? "Selecao Nutallis"}
         </div>
-        <CardTitle className="display-font mt-3 text-2xl">
+        <CardTitle className="display-font mt-3 text-2xl tracking-tight">
           {product.name}
         </CardTitle>
         <CardDescription className="mt-2">
@@ -48,7 +48,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
       >
         Adicionar ao carrinho
       </Button>
-      <div className="text-xs text-foreground/60">
+      <div className="text-xs text-foreground/65">
         Preco atual: {priceCents > 0 ? `R$ ${(priceCents / 100).toFixed(2)}` : "--"}
       </div>
     </Card>

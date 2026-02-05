@@ -71,7 +71,7 @@ export const WeightSelector = ({
           <div className="text-sm font-semibold text-forest">
             {formatCurrencyBRL(priceCents)}
           </div>
-          <div className="text-xs text-foreground/60">
+          <div className="text-xs text-foreground/65">
             {discountRate > 0
               ? `Desconto ${Math.round(discountRate * 100)}% aplicado`
               : "Preco base"}

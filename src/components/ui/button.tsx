@@ -9,10 +9,10 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const styles: Record<NonNullable<ButtonProps["variant"]>, string> = {
   primary:
-    "bg-forest text-cream hover:bg-[#162b22] shadow-[0_16px_30px_rgba(30,58,47,0.25)]",
+    "bg-forest text-cream hover:bg-[#162b22] shadow-[0_18px_36px_rgba(26,33,27,0.25)]",
   outline:
-    "border border-forest/30 text-forest hover:border-forest/60 hover:bg-forest/5",
-  ghost: "text-forest hover:bg-forest/10",
+    "border border-forest/30 text-forest hover:border-forest/60 hover:bg-forest/8",
+  ghost: "text-forest hover:bg-forest/12",
 };
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -21,12 +21,12 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <Comp
         ref={ref}
-      className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-full px-5 py-2 text-sm font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest/40",
-        styles[variant],
-        className
-      )}
-      {...props}
+        className={cn(
+          "inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold tracking-wide transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest/40",
+          styles[variant],
+          className
+        )}
+        {...props}
       />
     );
   }

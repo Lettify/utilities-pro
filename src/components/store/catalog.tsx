@@ -36,13 +36,13 @@ export const Catalog = ({ categories, products }: CatalogProps) => {
 
   return (
     <section className="space-y-6">
-      <div className="flex flex-col gap-4 rounded-3xl border border-forest/10 bg-white/70 p-6">
+      <div className="flex flex-col gap-4 rounded-[28px] border border-forest/12 bg-white p-6 shadow-[0_20px_60px_rgba(26,33,27,0.08)]">
         <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
           <div>
-            <h2 className="display-font text-3xl text-forest">
+            <h2 className="display-font text-3xl text-forest tracking-tight">
               Catalogo Nutallis
             </h2>
-            <p className="text-sm text-foreground/60">
+            <p className="text-sm text-foreground/70">
               Filtros rapidos, busca instantanea e peso sob medida.
             </p>
           </div>
